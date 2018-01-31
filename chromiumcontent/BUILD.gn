@@ -224,19 +224,6 @@ if (is_electron_build && !is_component_build) {
       ":webrtc",
       ":v8",
     ]
-    if (target_os == "linux") {
-      deps += [ ":libc++" ]
-    }
-  }
-
-  if (target_os == "linux") {
-    static_library("libc++") {
-      complete_static_lib = true
-      sources = []
-      if (defined(obj_libcxx)) {
-        sources += obj_libcxx
-      }
-    }
   }
 
   static_library("libchromiumcontent") {
